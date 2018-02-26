@@ -3,6 +3,9 @@
 @section('title', 'Home')
 
 @section('content')
+<script type="text/javascript" src="//ylx-1.com/bnr.php?section=General&pub=838947&format=728x90&ga=g"></script>
+<noscript><a href="https://yllix.com/publishers/838947" target="_blank"><img src="//ylx-aff.advertica-cdn.com/pub/728x90.png" style="border:none;margin:0;padding:0;vertical-align:baseline;" /></a></noscript>
+
     <div class="featured container">
 		<div class="row">
 			<div class="col-sm-8">
@@ -151,6 +154,19 @@
 								</div>
 							</div>
 						</div>
+						<!-- Composite Start -->
+						<div id="M311506ScriptRootC203917">
+							<div id="M311506PreloadC203917">
+							Loading...    </div>
+							<script>
+									(function(){
+								var D=new Date(),d=document,b='body',ce='createElement',ac='appendChild',st='style',ds='display',n='none',gi='getElementById';
+								var i=d[ce]('iframe');i[st][ds]=n;d[gi]("M311506ScriptRootC203917")[ac](i);try{var iw=i.contentWindow.document;iw.open();iw.writeln("<ht"+"ml><bo"+"dy></bo"+"dy></ht"+"ml>");iw.close();var c=iw[b];}
+								catch(e){var iw=d;var c=d[gi]("M311506ScriptRootC203917");}var dv=iw[ce]('div');dv.id="MG_ID";dv[st][ds]=n;dv.innerHTML=203917;c[ac](dv);
+								var s=iw[ce]('script');s.async='async';s.defer='defer';s.charset='utf-8';s.src="//jsc.mgid.com/i/m/imikino.net.203917.js?t="+D.getYear()+D.getMonth()+D.getDate()+D.getHours();c[ac](s);})();
+						</script>
+						</div>
+						<!-- Composite End -->
 					</div>
 				</div>
 			</div>
@@ -195,6 +211,19 @@
 										(adsbygoogle = window.adsbygoogle || []).push({});
 									</script>
 								</div>
+								<!-- Composite Start -->
+								<div class="col-md-12" id="M311506ScriptRootC203917">
+									<div id="M311506PreloadC203917">
+									Loading...    </div>
+									<script>
+											(function(){
+										var D=new Date(),d=document,b='body',ce='createElement',ac='appendChild',st='style',ds='display',n='none',gi='getElementById';
+										var i=d[ce]('iframe');i[st][ds]=n;d[gi]("M311506ScriptRootC203917")[ac](i);try{var iw=i.contentWindow.document;iw.open();iw.writeln("<ht"+"ml><bo"+"dy></bo"+"dy></ht"+"ml>");iw.close();var c=iw[b];}
+										catch(e){var iw=d;var c=d[gi]("M311506ScriptRootC203917");}var dv=iw[ce]('div');dv.id="MG_ID";dv[st][ds]=n;dv.innerHTML=203917;c[ac](dv);
+										var s=iw[ce]('script');s.async='async';s.defer='defer';s.charset='utf-8';s.src="//jsc.mgid.com/i/m/imikino.net.203917.js?t="+D.getYear()+D.getMonth()+D.getDate()+D.getHours();c[ac](s);})();
+								</script>
+								</div>
+								<!-- Composite End -->
 							</div>
 						</div>
 					</div>
@@ -209,6 +238,21 @@
 							</form>
 						</div>
 					</div>
+
+					<!-- Composite Start -->
+					<div id="M311506ScriptRootC203917">
+						<div id="M311506PreloadC203917">
+						Loading...    </div>
+						<script>
+								(function(){
+							var D=new Date(),d=document,b='body',ce='createElement',ac='appendChild',st='style',ds='display',n='none',gi='getElementById';
+							var i=d[ce]('iframe');i[st][ds]=n;d[gi]("M311506ScriptRootC203917")[ac](i);try{var iw=i.contentWindow.document;iw.open();iw.writeln("<ht"+"ml><bo"+"dy></bo"+"dy></ht"+"ml>");iw.close();var c=iw[b];}
+							catch(e){var iw=d;var c=d[gi]("M311506ScriptRootC203917");}var dv=iw[ce]('div');dv.id="MG_ID";dv[st][ds]=n;dv.innerHTML=203917;c[ac](dv);
+							var s=iw[ce]('script');s.async='async';s.defer='defer';s.charset='utf-8';s.src="//jsc.mgid.com/i/m/imikino.net.203917.js?t="+D.getYear()+D.getMonth()+D.getDate()+D.getHours();c[ac](s);})();
+					</script>
+					</div>
+					<!-- Composite End -->
+
 					<!---- Start Widget ---->
 					<div class="widget wid-tags">
 						<div class="heading"><h4>Inkuru za :</h4></div>
