@@ -3,7 +3,7 @@
   @section('title', 'Create New Post')
 
   @section('stylesheets')
-    {!! Html::style('/css/parsley.min.css') !!}
+    {!! Html::style('/css/parsley.css') !!}
     {!! Html::style('/css/select2.min.css') !!}
     <script src="/js/tiny/tinymce.min.js"></script>
 
@@ -130,7 +130,6 @@
           </div>
           <!-- /.box -->
         </div>
-        <!-- ./col -->
       </div>
       <!-- /.row -->
 
