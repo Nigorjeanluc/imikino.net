@@ -19,7 +19,11 @@
 	<link href="/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
 	
 	<!-- Custom Fonts -->
-    <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css"  type="text/css">
+	<link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css"  type="text/css">
+	
+	<script src="https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js"></script>
+
+
 	
 	<!-- Global Site Tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-105882306-1"></script>
