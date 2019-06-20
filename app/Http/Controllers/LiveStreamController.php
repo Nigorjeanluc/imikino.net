@@ -1,21 +1,23 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use App\Post;
 use App\Location;
 use App\Sport;
-use Auth;
 use App\Tag;
 use App\Comment;
 use Purifier;
 use Session;
 use Image;
 use Storage;
+use App\Contact;
+use App\Live;
+use Auth;
+use DB;
 
+use Illuminate\Http\Request;
 
-class ReporterPostController extends Controller
+class LiveStreamController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -26,11 +28,14 @@ class ReporterPostController extends Controller
     {
         $this->middleware('auth:journalist');
     }
+
     public function index()
     {
-        $posts = Post::where('author', '=', Auth::user()->name)->orderBy('id', 'desc')->paginate(5);
+        
+        $posts = Live::where('author', '=', Auth::user()->name)->orderBy('id', 'desc')->paginate(5);
+        $comments = Comment::all();
         $commentss = Comment::where('approved', '=', 0)->orderBy('id', 'desc')->limit(5)->get();
-        return view('reporterpages.posts.index')->withPosts($posts)->withComs($commentss);
+        return view('reporterpages.lives.index')->withPosts($posts)->withComments($comments)->withComs($commentss);
     }
 
     /**
@@ -46,7 +51,7 @@ class ReporterPostController extends Controller
         $commentss = Comment::where('approved', '=', 0)->orderBy('id', 'desc')->limit(5)->get();
 
         $locations = Location::all();
-        return view('reporterpages.posts.create')->withSports($sports)->withLocations($locations)->withTags($tags)->withComs($commentss);
+        return view('reporterpages.lives.create')->withSports($sports)->withLocations($locations)->withTags($tags)->withComs($commentss);
     }
 
     /**
@@ -79,7 +84,7 @@ class ReporterPostController extends Controller
         ));
 
         // store in the database
-        $post = new Post;
+        $post = new Live;
 
         $post->title = $request->title;
         $post->slug = $request->slug;
@@ -186,7 +191,7 @@ class ReporterPostController extends Controller
         
         // redirect to another page
         
-        return redirect()->route('reporterposts.show', $post->id);
+        return redirect()->route('livestream.show', $post->id);
     }
 
     /**
@@ -197,9 +202,9 @@ class ReporterPostController extends Controller
      */
     public function show($id)
     {
-        $post = Post::find($id);
+        $post = Live::find($id);
         $commentss = Comment::where('approved', '=', 0)->orderBy('id', 'desc')->limit(5)->get();
-        return view('reporterpages.posts.show')->withPost($post)->withComs($commentss);
+        return view('reporterpages.lives.show')->withPost($post)->withComs($commentss);
     }
 
     /**
@@ -210,7 +215,7 @@ class ReporterPostController extends Controller
      */
     public function edit($id)
     {
-        $post = Post::find($id);
+        $post = Live::find($id);
         $commentss = Comment::where('approved', '=', 0)->orderBy('id', 'desc')->limit(5)->get();
         $sports = Sport::all();
         $sports2 = array();
@@ -227,7 +232,7 @@ class ReporterPostController extends Controller
         foreach ($tags as $tag) {
             $tags2[$tag->id] = $tag->name;
         }
-        return view('reporterpages.posts.edit')->withPost($post)->withLocations($locations2)->withSports($sports2)->withTags($tags2)->withComs($commentss);
+        return view('reporterpages.lives.edit')->withPost($post)->withLocations($locations2)->withSports($sports2)->withTags($tags2)->withComs($commentss);
     }
 
     /**
@@ -238,8 +243,7 @@ class ReporterPostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        $post = Post::find($id);
+    {$post = Live::find($id);
         if ($request->input('slug') == $post->slug) {
             $this->validate($request, array(
                 'title'          => 'required|max:255',
@@ -369,7 +373,7 @@ class ReporterPostController extends Controller
         $request->session()->flash('success', 'The blog post was successfully saved!');
         
         // Redirect with flash data to posts.show
-        return redirect()->route('reporterposts.show', $post->id);
+        return redirect()->route('livestream.show', $post->id);
     }
 
     /**
@@ -380,7 +384,7 @@ class ReporterPostController extends Controller
      */
     public function destroy($id)
     {
-        $post = Post::find($id);
+        $post = Live::find($id);
         $post->tags()->detach();
         //Storage::delete($post->image);
 
@@ -390,6 +394,6 @@ class ReporterPostController extends Controller
         Session::flash('success', 'The post was successfully deleted.');
         
 
-        return redirect()->route('reporterposts.index');
+        return redirect()->route('livestream.index');
     }
 }

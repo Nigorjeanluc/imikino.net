@@ -1,6 +1,6 @@
-  @extends('home')
+@extends('reporter')
 
-  @section('title', 'All Messages')
+  @section('title', 'All Live-streaming posts')
   
   @section('content')
   <div class="content-wrapper">
@@ -12,7 +12,7 @@
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
+        <li class="active">Live-streaming posts</li>
       </ol>
     </section>
 
@@ -26,7 +26,7 @@
               <h3 class="box-title">All posts</h3>
 
               <div class="box-tools">
-                {!! $comments->links() !!}
+                {!! $posts->links() !!}
               </div>
             </div>
             <!-- /.box-header -->
@@ -34,23 +34,21 @@
               <table class="table">
                 <tr>
                   <th style="width: 10px">#</th>
-                  <th>User</th>
-                  <th>Phone</th>
-                  <th>Email</th>
-                  <th>Message</th>
+                  <th>Title</th>
+                  <th>Content</th>
                   <th style="width: 150px">Created at</th>
+                  <th>Updated at</th>
                   <th></th>
                 </tr>
-                @foreach ($comments as $comment)
+                @foreach ($posts as $post)
                   <tr>
-                    <th>{{ $comment->id }}</th>
-                    <td><b>{{ substr($comment->name, 0, 30) }}{{ strlen($comment->name) > 30 ? "..." : "" }}</b></td>
-                    <td>{{ $comment->phone }}</td>
-                    <td>{{ $comment->email }}</td>
-                    <td>{{ substr(strip_tags($comment->message), 0, 50) }}{{ strlen($comment->message) > 50 ? "..." : "" }}</td>
-                    <td>{{ $comment->created_at->diffForHumans() }}</td>
+                    <th>{{ $post->id }}</th>
+                    <td><b>{{ substr($post->title, 0, 30) }}{{ strlen($post->title) > 30 ? "..." : "" }}</b></td>
+                    <td>{{ substr(strip_tags($post->body), 0, 50) }}{{ strlen($post->body) > 50 ? "..." : "" }}</td>
+                    <td>{{ $post->created_at->diffForHumans() }}</td>
+                    <td>{{ $post->updated_at->diffForHumans() }}</td>
                     <td>
-                      <a style="color:#fff" href="{{ route('messages.show', $comment->id) }}" class="btn btn-info btn-flat btn-sm">View</a>
+                      <a style="color:#fff" href="{{ route('livestream.show', $post->id) }}" class="btn btn-info btn-flat btn-sm">View</a> <a style="color:#fff" href="{{ route('livestream.edit', $post->id )}}" class="btn btn-success btn-flat btn-sm">Edit</a>
                     </td>
                   </tr>
                 @endforeach

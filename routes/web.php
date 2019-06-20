@@ -27,6 +27,12 @@ Route::post('ajax_upload/action2', 'AjaxUploadController@action2')->name('ajaxup
 Route::post('ajax_upload/action3', 'AjaxUploadController@action3')->name('ajaxupload.action3');
 Route::post('ajax_upload/action4', 'AjaxUploadController@action4')->name('ajaxupload.action4');
 Route::post('ajax_upload/action5', 'AjaxUploadController@action5')->name('ajaxupload.action5');
+Route::post('ajax_upload/actionn', 'AjaxUploadController@actionn')->name('ajaxupload.actionn');
+Route::post('ajax_upload/action22', 'AjaxUploadController@action22')->name('ajaxupload.action22');
+Route::post('ajax_upload/action33', 'AjaxUploadController@action33')->name('ajaxupload.action33');
+Route::post('ajax_upload/action44', 'AjaxUploadController@action44')->name('ajaxupload.action44');
+Route::post('ajax_upload/action55', 'AjaxUploadController@action55')->name('ajaxupload.action55');
+Route::post('ajax_upload/profile', 'AjaxUploadController@profile')->name('ajaxupload.profile');
 
 // Sports
 Route::resource('sports', 'SportController', ['except' => ['create']]);
@@ -41,15 +47,25 @@ Route::get('comments', 'CommentsController@index')->name('comments.index');
 Route::get('comments/{id}/edit', ['uses' => 'CommentsController@edit', 'as' => 'comments.edit']);
 Route::get('comments/approve{id}', ['uses' => 'CommentsController@postApprove', 'as' => 'approvedApplications']);
 Route::get('comments/disapprove{id}', ['uses' => 'CommentsController@postDisapprove', 'as' => 'disapprovedApplications']);
+Route::get('admin_livestream/approve{id}', ['uses' => 'LiveAdminController@postApprove', 'as' => 'approvedLive']);
+Route::get('admin_livestream/disapprove{id}', ['uses' => 'LiveAdminController@postDisapprove', 'as' => 'disapprovedLive']);
 Route::put('comments/{id}', ['uses' => 'CommentsController@update', 'as' => 'comments.update']);
 Route::delete('comments/{id}', ['uses' => 'CommentsController@destroy', 'as' => 'comments.destroy']);
 Route::get('comments/{id}/delete', ['uses' => 'CommentsController@delete', 'as' => 'comments.delete']);
+
+Route::get('admin_livestream', 'LiveAdminController@index')->name('admin_livestream.index');
+
+Route::get('admin_livestream/{id}', 'LiveAdminController@show')->name('admin_livestream.show');
+Route::delete('admin_livestream/{id}', 'LiveAdminController@destroy')->name('admin_livestream.destroy');
 
 Route::prefix('reporter')->group(function() {
     Route::get('/login', 'Auth\JournalistLoginController@showLoginForm')->name('journalist.login');
     Route::post('/login', 'Auth\JournalistLoginController@login')->name('journalist.login.submit');
     Route::get('/dashboard', 'JournalistController@index')->name('journalist.dashboard');
+    Route::get('/profile', 'JournalistController@profile')->name('journalist.profile');
+    Route::put('/profile/{id}', 'JournalistController@profileUpdate')->name('journalist.profile.update');
     Route::resource('reporterposts', 'ReporterPostController');
+    Route::resource('livestream', 'LiveStreamController');
 });
 
 
@@ -117,6 +133,7 @@ Route::post('comments/{post_id}', ['uses' => 'CommentsController@store', 'as' =>
 
 // Messages
 Route::get('messages', 'MsgController@index')->name('messages.index');
+Route::get('messages/{id}', 'MsgController@show')->name('messages.show');
 // Password Reset Routes
 /*
 Route::get('password/reset/{token?}', 'Auth\ResetPasswordController@showResetForm');
@@ -125,6 +142,10 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 */
 
 Route::get('{slug}', ['as' => 'single', 'uses' => 'SingleController@getSingle'])
+->where('slug', '[\w\d\-\_]+');
+
+
+Route::get('livestream/{slug}', ['as' => 'live_single', 'uses' => 'SingleController@getLive'])
 ->where('slug', '[\w\d\-\_]+');
 
 Route::post('getSearch', 'searchController@getSearch')->name('pages.postSearch');
