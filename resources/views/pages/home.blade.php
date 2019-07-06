@@ -58,7 +58,7 @@
 					</a>
 				</div><!-- /carousel -->
 			</div>
-			{{--  <div class="col-sm-12">
+			<div class="col-sm-4">
 				@if(isset($live))
 					<center><h4>Inkuru iri Live</h4></center>
 					<a href="{{ route('live_single', $live->slug) }}"><img src="{{asset('images/news/'.$live->image)}}" /></a>
@@ -77,7 +77,7 @@
 				</div>
 				@endif
 				<!--<img src="images/pub/ads.png" />-->
-			</div>  --}}
+			</div>
 		</div>
 	</div>
 	
@@ -257,7 +257,7 @@
 								var D=new Date(),d=document,b='body',ce='createElement',ac='appendChild',st='style',ds='display',n='none',gi='getElementById';
 								var i=d[ce]('iframe');i[st][ds]=n;d[gi]("M311506ScriptRootC203917")[ac](i);try{var iw=i.contentWindow.document;iw.open();iw.writeln("<ht"+"ml><bo"+"dy></bo"+"dy></ht"+"ml>");iw.close();var c=iw[b];}
 								catch(e){var iw=d;var c=d[gi]("M311506ScriptRootC203917");}var dv=iw[ce]('div');dv.id="MG_ID";dv[st][ds]=n;dv.innerHTML=203917;c[ac](dv);
-								var s=iw[ce]('script');s.async='async';s.defer='defer';s.charset='utf-8';s.src="//jsc.mgid.com/i/m/imikino.net.203917.js?t="+D.getYear()+D.getMonth()+D.getDate()+D.getHours();c[ac](s);})();
+								var s=iw[ce]('script');s.async='async';s.defer='defer';s.charset='utf-8';s.src="//jsc.mgid.com/i/m/imikino.rw.203917.js?t="+D.getYear()+D.getMonth()+D.getDate()+D.getHours();c[ac](s);})();
 						</script>
 					</div>
 					<!-- Composite End --> --}}
