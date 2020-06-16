@@ -34,7 +34,7 @@
     <!--<p class="login-box-msg">Sign in to start your session</p>-->
 
     <form method="POST" action="{{ route('journalist.login.submit') }}">
-      @csrf
+      {{ csrf_field() }}
       <div class="form-group has-feedback{{ $errors->has('email') ? ' has-error' : '' }}">
         <input id="email" name="email" type="email" class="form-control" placeholder="Email" value="{{ old('email') }}" required autofocus>
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
